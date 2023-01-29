@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using System;
 using System.Threading;
+namespace epsg
+{
 
 public class GeographicGeocentricTest
 {
@@ -69,9 +71,9 @@ public class GeographicGeocentricTest
 
     public bool TestReverse(double X, double Y, double Z, double lat, double lon, double ellipsoidalHeight)
     {
-        CRS crs = new WGS84();
-        Vector3GeoCentric result = crs.ToGeoCentric(new Vector3LatLong(lat, lon, ellipsoidalHeight));
-        Vector3GeoCentric target = new Vector3GeoCentric(X, Y, Z);
+        crs.CRS crs = new crs.WGS84();
+        Vector3GeoCentric result = crs.ToGeoCentric(new Vector3LatLong(lat, lon, ellipsoidalHeight,CrsNames.UNKNOWN));
+        Vector3GeoCentric target = new Vector3GeoCentric(X, Y, Z,CrsNames.UNKNOWN);
         double tolerance = 0.01;
         return CheckReverse(result, target, tolerance);
 
@@ -79,9 +81,9 @@ public class GeographicGeocentricTest
 
     public bool TestForward(double X, double Y, double Z, double lat, double lon, double ellipsoidalHeight)
     {
-        CRS crs = new WGS84();
-        Vector3LatLong result = crs.ToEllipsoidal(new Vector3GeoCentric(X, Y, Z));
-        Vector3LatLong target = new Vector3LatLong(lat, lon, ellipsoidalHeight);
+        crs.CRS crs = new crs.WGS84();
+        Vector3LatLong result = crs.ToEllipsoidal(new Vector3GeoCentric(X, Y, Z,CrsNames.UNKNOWN));
+        Vector3LatLong target = new Vector3LatLong(lat, lon, ellipsoidalHeight,CrsNames.UNKNOWN);
         double tolerance = 0.0003 / 3600;
         return CheckForward(result, target, tolerance);
 
@@ -127,4 +129,6 @@ public class GeographicGeocentricTest
     {
         return Math.Abs(value1 - value2);
     }
+}
+
 }

@@ -1,12 +1,24 @@
-﻿public class WGS84 : CRS
+﻿namespace epsg.crs
 {
-    public WGS84()
+    public class WGS84 : CRS
     {
-        crsEnum = CoordinateReferenceSystem.WGS84;
-        ellipsoid = new Ellipsoid(6378137, 298.257223563);
-        toWGS84 = new double[7] { 0, 0, 0, 0, 0, 0, 0 };
+        public WGS84()
+        {
+            name = "WGS84";
+            epsgCode = 4326;
+            connectedCRS = 0;
+            ellipsoid = new Ellipsoid(6378137, 298.257223563);
+            toConnectedCRS = new double[7] { 0, 0, 0, 0, 0, 0, 0 };
+            
+        }
+
     }
-
 }
-
+namespace epsg
+{ 
+    public static partial class CrsNames
+    {
+        public static CrsName WGS84 = new CrsName(4326, "WGS84", new crs.WGS84());
+    }
+}
 

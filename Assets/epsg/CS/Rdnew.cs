@@ -1,13 +1,15 @@
-﻿public class Rdnew : CS
+﻿namespace epsg
 {
-    public Rdnew()
+    public class Rdnew : CS
     {
-        csEnum = CoordinateSystem.AmersfoortRdNew;
-        coordinateSystemType = CoordinateSystemType.Cartesian;
-        crsEnum = CoordinateReferenceSystem.Amersfoort;
-        crs = new Amersfoort();
-        operationMethod = new RDBenadering();
+        public Rdnew()
+        {
+            csEnum = CoordinateSystem.AmersfoortRdNew;
+            coordinateSystemType = CoordinateSystemType.Cartesian;
+
+            crs = new crs.Amersfoort();
+            operationMethod = new RDBenadering();
+        }
     }
 }
-
 
