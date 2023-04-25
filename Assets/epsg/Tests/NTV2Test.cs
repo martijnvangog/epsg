@@ -69,15 +69,15 @@ namespace epsg
         {
             NTv2 ntv = new NTv2();
             ntv.readFile("ntv2_0(2)");
-            Vector3LatLong target = new Vector3LatLong(targetLat, targetLon, 0,CrsNames.UNKNOWN);
-            Vector3LatLong result = ntv.transformPoint(new Vector3LatLong(inputLat, inputLon, 0, CrsNames.UNKNOWN), direction);
+            Vector3Geographic target = new Vector3Geographic(targetLat, targetLon, 0);
+            Vector3Geographic result = ntv.transformPoint(new Vector3Geographic(inputLat, inputLon, 0), direction);
 
 
             return CheckForward(result, target, 0.0000003);
 
         }
 
-        bool CheckForward(Vector3LatLong result, Vector3LatLong target, double tolerance)
+        bool CheckForward(Vector3Geographic result, Vector3Geographic target, double tolerance)
         {
             bool withinTolerance = true;
             if (AbsoluteDifference(result.longitude, target.longitude) > tolerance)
@@ -91,7 +91,7 @@ namespace epsg
             return withinTolerance;
         }
 
-        bool CheckReverse(Vector3LatLong result, Vector3LatLong target, double tolerance)
+        bool CheckReverse(Vector3Geographic result, Vector3Geographic target, double tolerance)
         {
             bool withinTolerance = true;
             if (AbsoluteDifference(result.lattitude, target.lattitude) > tolerance)

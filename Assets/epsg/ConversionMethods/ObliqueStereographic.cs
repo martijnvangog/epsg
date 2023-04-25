@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 namespace epsg
 {
-    [Serializable]
+    [System.Serializable]
     public class ObliqueStereographic : OperationMethod
 
     {
@@ -41,7 +41,7 @@ namespace epsg
 
 
 
-        public override Vector3Projection Forward(Vector3LatLong latlong)
+        public override Vector3Projection Forward(Vector3Geographic latlong)
         {
             double lattitude = latlong.lattitude * Math.PI / 180.0;
             double longitude = latlong.longitude * Math.PI / 180.0;
@@ -62,7 +62,7 @@ namespace epsg
             return result;
         }
 
-        public override Vector3LatLong Reverse(Vector3Projection xy)
+        public override Vector3Geographic Reverse(Vector3Projection xy)
         {
             double g = 2 * R * scaleFactorAtNaturalOrigin * Math.Tan((Math.PI / 4) - (conformalLattitudeOfOrigin / 2));
 
@@ -90,7 +90,7 @@ namespace epsg
 
 
             }
-            Vector3LatLong result = new Vector3LatLong();
+            Vector3Geographic result = new Vector3Geographic();
             result.lattitude = phi1 * 180 / Math.PI;
 
 

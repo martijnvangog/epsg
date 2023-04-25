@@ -14,9 +14,9 @@ namespace epsg
         public Grid grid;
 
         [Header("search grids")]
-        public Vector3LatLong coordinate;
+        public Vector3Geographic coordinate;
         public Grid FoundGrid;
-        public Vector3LatLong pointoffset;
+        public Vector3Geographic pointoffset;
         void Start()
         {
             readFile("rdcorr2018");
@@ -96,37 +96,37 @@ namespace epsg
             return result;
         }
 
-        void FindGridFile(Vector3LatLong point)
+        void FindGridFile(Vector3Geographic point)
         {
             FoundGrid = grid.getGridWithPoint(point);
         }
 
-        public Vector3LatLong transformPoint(Vector3LatLong point, transformationDirection direction)
+        public Vector3Geographic transformPoint(Vector3Geographic point, transformationDirection direction)
         {
-            Vector3LatLong result = new Vector3LatLong();
+            Vector3Geographic result = new Vector3Geographic();
             if (direction == transformationDirection.Forward)
             {
-                Vector3LatLong offset = GetOffset(point);
+                Vector3Geographic offset = GetOffset(point);
                 result.lattitude = point.lattitude + offset.lattitude;
                 result.longitude = point.longitude + offset.longitude;
                 return result;
             }
 
-            Vector3LatLong inPoint = point;
-            Vector3LatLong outpoint = new Vector3LatLong();
+            Vector3Geographic inPoint = point;
+            Vector3Geographic outpoint = new Vector3Geographic();
 
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 10; i++)
             {
-                Vector3LatLong inpointOffset = GetOffset(inPoint);
+                Vector3Geographic inpointOffset = GetOffset(inPoint);
                 outpoint.lattitude = inPoint.lattitude + inpointOffset.lattitude;
                 outpoint.longitude = inPoint.longitude + inpointOffset.longitude;
-                Vector3LatLong offset = new Vector3LatLong();
+                Vector3Geographic offset = new Vector3Geographic();
                 offset.lattitude = point.lattitude - outpoint.lattitude;
                 offset.longitude = point.longitude - outpoint.longitude;
-                if (Math.Abs(offset.lattitude) < 0.0000003 && Math.Abs(offset.longitude) < 0.0000003)
+                if (Math.Abs(offset.lattitude) < 0.000000009 && Math.Abs(offset.longitude) < 0.000000009)
                 {
-                    i = 5;
+                    i = 10;
                 }
                 inPoint.lattitude += offset.lattitude;
                 inPoint.longitude += offset.longitude;
@@ -139,12 +139,12 @@ namespace epsg
         }
 
 
-        private Vector3LatLong GetOffset(Vector3LatLong point)
+        private Vector3Geographic GetOffset(Vector3Geographic point)
         {
             FindGridFile(point);
             if (FoundGrid == null)
             {
-                return new Vector3LatLong(double.NaN, double.NaN, double.NaN,CrsNames.Amersfoort);
+                return new Vector3Geographic(0.0, 0.0, double.NaN);
             }
             double pointLattitude = point.lattitude * 3600;    // (in seconds)
             double pointLongitude = -point.longitude * 3600;    // (in seconds)
@@ -200,7 +200,7 @@ namespace epsg
             double fLon = cLon + ((dLon - cLon) * y);
             double pLon = eLon + ((fLon - eLon) * x);
 
-            Vector3LatLong result = new Vector3LatLong();
+            Vector3Geographic result = new Vector3Geographic();
 
             result.lattitude = (pLat / 3600);
             result.longitude = -(pLon / 3600);
@@ -247,7 +247,7 @@ namespace epsg
 
         }
 
-        public Grid getGridWithPoint(Vector3LatLong point)
+        public Grid getGridWithPoint(Vector3Geographic point)
         {
             for (int i = 0; i < subgrids.Count; i++)
             {
@@ -279,7 +279,7 @@ namespace epsg
             return this;
         }
 
-        public void GridShiftInterpolation(Vector3LatLong point)
+        public void GridShiftInterpolation(Vector3Geographic point)
         {
 
 

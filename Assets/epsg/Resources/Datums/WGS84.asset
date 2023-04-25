@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d665ef9b02f03429e9c00ae3226f1d, type: 3}
+  m_Name: WGS84
+  m_EditorClassIdentifier: 
+  name: WGS84
+  epsgCode: 4326
+  ellipsoid:
+    semimajorAxis: 6378137
+    inverseFlattening: 298.257223563
+    eccentricity: NaN
+    flattening: Infinity
+  connectedDatum: {fileID: 11400000, guid: c514fabe8451387408cd92639804f422, type: 2}
+  toConnectedDatum:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0

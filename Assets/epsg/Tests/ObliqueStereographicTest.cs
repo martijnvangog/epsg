@@ -65,8 +65,8 @@ namespace epsg
         {
 
             OperationMethod om = new ObliqueStereographic(52.1561605555556, 5.38763888888889, 0.9999079, 155000, 463000, new crs.Ellipsoid(6377397.155, 299.1528128));
-            Vector3LatLong result = om.Reverse(new Vector3Projection(inputEast, inputNorth, 0, ProjectionNames.rdNew));
-            Vector3LatLong target = new Vector3LatLong(targetLat, targetLon, 0,CrsNames.UNKNOWN);
+            Vector3Geographic result = om.Reverse(new Vector3Projection(inputEast, inputNorth, 0));
+            Vector3Geographic target = new Vector3Geographic(targetLat, targetLon, 0);
             bool withinTolerance = CheckReverse(result, target, 0.0000006);
             return withinTolerance;
         }
@@ -74,8 +74,8 @@ namespace epsg
         public bool TestForward(double inputLon, double inputLat, double targetEast, double targetNorth)
         {
             OperationMethod om = new ObliqueStereographic(52.1561605555556, 5.38763888888889, 0.9999079, 155000, 463000, new crs.Ellipsoid(6377397.155, 299.1528128));
-            Vector3Projection result = om.Forward(new Vector3LatLong(inputLat, inputLon, 0,CrsNames.UNKNOWN));
-            Vector3Projection target = new Vector3Projection(targetEast, targetNorth, 0, ProjectionNames.rdNew);
+            Vector3Projection result = om.Forward(new Vector3Geographic(inputLat, inputLon, 0));
+            Vector3Projection target = new Vector3Projection(targetEast, targetNorth, 0);
             return CheckForward(result, target, 0.05);
 
         }
@@ -94,7 +94,7 @@ namespace epsg
             return withinTolerance;
         }
 
-        bool CheckReverse(Vector3LatLong result, Vector3LatLong target, double tolerance)
+        bool CheckReverse(Vector3Geographic result, Vector3Geographic target, double tolerance)
         {
             bool withinTolerance = true;
             if (AbsoluteDifference(result.lattitude, target.lattitude) > tolerance)
