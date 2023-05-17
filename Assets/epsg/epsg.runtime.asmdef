@@ -1,0 +1,23 @@
+{
+    "name": "epsg.runtime",
+    "rootNamespace": "epsg",
+    "references": [
+        "GUID:29492541a59d04a81b47a7f225e8a22d",
+        "GUID:b03dfc3a64d242347a3664b94d50fa29"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity-atoms.unity-atoms-core",
+            "expression": "",
+            "define": "ATOMS"
+        }
+    ],
+    "noEngineReferences": false
+}

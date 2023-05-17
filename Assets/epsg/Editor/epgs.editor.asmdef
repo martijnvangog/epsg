@@ -1,0 +1,17 @@
+{
+    "name": "epgs.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b03dfc3a64d242347a3664b94d50fa29",
+        "GUID:715a4022db03d1547b5bd9c1e7e52963"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

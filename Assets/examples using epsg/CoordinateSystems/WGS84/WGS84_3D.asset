@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d03dec7cef09846bbb3273489a7e8d, type: 3}
+  m_Name: WGS84_3D
+  m_EditorClassIdentifier: 
+  epsgCode: 0
+  name: WGS84 3D
+  _coordinateSystemType: 5
+  Axis1:
+    name: longitude
+    abbreviation: lon
+    direction: 1
+    Unit: 1
+  Axis2:
+    name: lattitude
+    abbreviation: lat
+    direction: 0
+    Unit: 1
+  Axis3:
+    name: ellipsoidal height
+    abbreviation: h
+    direction: 10
+    Unit: 0

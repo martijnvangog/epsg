@@ -1,7 +1,14 @@
-﻿public enum CoordinateSystemType
+﻿namespace epsg.coordinatesystems
 {
-    Cartesian,
-    Ellipsoidal
+    [System.Serializable]
+    public enum CoordinateSystemType
+    {   
+        undefined,
+        vertical1D,
+        cartesian2D,
+        cartesian3D,
+        ellipsoidal2D,
+        ellipsoidal3D,
+        geocentric
+    }
 }
-
-

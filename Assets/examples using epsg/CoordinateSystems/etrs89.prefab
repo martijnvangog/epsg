@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8241108651356115565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7541266369536350164}
+  - component: {fileID: 5003923059980344452}
+  m_Layer: 0
+  m_Name: etrs89
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7541266369536350164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241108651356115565}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5003923059980344452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241108651356115565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35827b4e88ade85408b26c56c1fde71d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coordinateSystems:
+  - {fileID: 11400000, guid: a0c08185e69105547b961e845ceca416, type: 2}
+  - {fileID: 11400000, guid: cda7fa63d50ae284c99b2ef15a778abe, type: 2}
+  - {fileID: 11400000, guid: f70187d472e435f418a153db06c17ff7, type: 2}
+  transformations:
+  - From: {fileID: 11400000, guid: cda7fa63d50ae284c99b2ef15a778abe, type: 2}
+    To: {fileID: 11400000, guid: a0c08185e69105547b961e845ceca416, type: 2}
+    operations:
+    - direction: 0
+      operation:
+        operationMethod: 3
+        HelmertSettings:
+          tX: 0
+          tY: 0
+          tZ: 0
+          rX: 0
+          rY: 0
+          rZ: 0
+          dS: 0
+        addDimensionSettings:
+          AxisNumber: 0
+          defaultValue: 0
+        geog2GeocSettings:
+          _primeMeridian: 0
+          _semiMajorAxis: 6378137
+          _inverseFlattening: 298.257222101
+  - From: {fileID: 11400000, guid: f70187d472e435f418a153db06c17ff7, type: 2}
+    To: {fileID: 11400000, guid: cda7fa63d50ae284c99b2ef15a778abe, type: 2}
+    operations:
+    - direction: 0
+      operation:
+        operationMethod: 2
+        HelmertSettings:
+          tX: 0
+          tY: 0
+          tZ: 0
+          rX: 0
+          rY: 0
+          rZ: 0
+          dS: 0
+        addDimensionSettings:
+          AxisNumber: 3
+          defaultValue: 0
+        geog2GeocSettings:
+          _primeMeridian: 0
+          _semiMajorAxis: 6378137
+          _inverseFlattening: 298.257223563
+  - From: {fileID: 11400000, guid: f70187d472e435f418a153db06c17ff7, type: 2}
+    To: {fileID: 11400000, guid: bae984b63041f9b469ce5d736b5c5f52, type: 2}
+    operations:
+    - direction: 0
+      operation:
+        operationMethod: 1
+        HelmertSettings:
+          tX: 0
+          tY: 0
+          tZ: 0
+          rX: 0
+          rY: 0
+          rZ: 0
+          dS: 0
+        addDimensionSettings:
+          AxisNumber: 3
+          defaultValue: 0
+        geog2GeocSettings:
+          _primeMeridian: 0
+          _semiMajorAxis: 6378137
+          _inverseFlattening: 298.257223563
+  - From: {fileID: 11400000, guid: cda7fa63d50ae284c99b2ef15a778abe, type: 2}
+    To: {fileID: 11400000, guid: c319484f8b858194982d1fdfa2786d94, type: 2}
+    operations:
+    - direction: 0
+      operation:
+        operationMethod: 1
+        HelmertSettings:
+          tX: 0
+          tY: 0
+          tZ: 0
+          rX: 0
+          rY: 0
+          rZ: 0
+          dS: 0
+        addDimensionSettings:
+          AxisNumber: 3
+          defaultValue: 0
+        geog2GeocSettings:
+          _primeMeridian: 0
+          _semiMajorAxis: 6378137
+          _inverseFlattening: 298.257223563
