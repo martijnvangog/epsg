@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d03dec7cef09846bbb3273489a7e8d, type: 3}
   m_Name: WGS84_ECEF
   m_EditorClassIdentifier: 
-  epsgCode: 0
+  epsgCode: 4978
   name: WGS84 ECEF
   _coordinateSystemType: 6
   Axis1:

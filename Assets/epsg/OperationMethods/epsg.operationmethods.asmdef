@@ -1,6 +1,6 @@
 {
     "name": "epsg.operationmethods",
-    "rootNamespace": "epsg.operationmethods",
+    "rootNamespace": "epsg.operationMethods",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -7,13 +7,7 @@
         East,
         South,
         West,
-        Left,
-        Right,
-        Forward,
-        Backward,
         Up,
-        Down,
-        ellipsoidalHeight,
         GeodeticX,
         GeodeticY,
         GeodeticZ

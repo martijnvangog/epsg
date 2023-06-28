@@ -57,7 +57,7 @@ namespace epsg.operationMethods
                     container.Add(NullOperationField);
                     container.Bind(property.FindPropertyRelative("nullOperationSettings").serializedObject);
                     break;
-                case OperationMethodEnum.AddDimension:
+                case OperationMethodEnum.SetAxisvalue:
                     var AddDimensionField = new PropertyField(property.FindPropertyRelative("addDimensionSettings"));
                     container.Add(AddDimensionField);
                     container.Bind(property.FindPropertyRelative("addDimensionSettings").serializedObject);
@@ -66,6 +66,19 @@ namespace epsg.operationMethods
                     var Addg2gField = new PropertyField(property.FindPropertyRelative("geog2GeocSettings"));
                     container.Add(Addg2gField);
                     container.Bind(property.FindPropertyRelative("geog2GeocSettings").serializedObject);
+                    break;
+                case OperationMethodEnum.SetAsideElevation:
+
+                    break;
+                case OperationMethodEnum.ElevationGridOffset:
+                    var elevationGridfield = new PropertyField(property.FindPropertyRelative("elevationGridSettings"));
+                    container.Add(elevationGridfield);
+                    container.Bind(property.FindPropertyRelative("elevationGridSettings").serializedObject);
+                    break;
+                case OperationMethodEnum.GridShift:
+                    var gridshiftField = new PropertyField(property.FindPropertyRelative("gridShiftSettings"));
+                    container.Add(gridshiftField);
+                    container.Bind(property.FindPropertyRelative("gridShiftSettings").serializedObject);
                     break;
                 default:
                     break;

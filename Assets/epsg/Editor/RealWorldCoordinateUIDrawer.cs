@@ -29,13 +29,13 @@ namespace epsg
             getCoordinateSystems(property);
             coordinatePopup = new DropdownField("coordinateSystem",coordinatesystemNames, activeCoordinateSystemIndex);
             
-            //coordinatePopup = new PopupField<string>(coordinatesystemNames, activeCoordinateSystemIndex);
             coordinatePopup.style.left = 10;
             serializedObject = property.FindPropertyRelative("coordinateSystem").serializedObject;
-            //coordinatePopup.Bind(serializedObject);
+            coordinatePopup.Bind(serializedObject);
             coordinatePopup.RegisterCallback<ChangeEvent<string>>(x=>csChanged(x.newValue,property));
             coordinatePopup.style.left = 10;
             mainContainer.Add(coordinatePopup);
+
             coordinatesContainer = new VisualElement();
             coordinatesContainer.style.left = 10;
             mainContainer.Add(coordinatesContainer);
@@ -100,29 +100,24 @@ namespace epsg
         public void getCoordinateSystems(SerializedProperty property)
         {
             CoordinateSystemCollection[] csCollections = (CoordinateSystemCollection[])Resources.FindObjectsOfTypeAll(typeof(CoordinateSystemCollection));
-            
+
+            activeCoordinateSystem = (CoordinateSystem)property.FindPropertyRelative("coordinateSystem").objectReferenceValue;
+
+            int index = 0;
             foreach (var cscollection in csCollections)
             {
                 for (int i = 0; i < cscollection.coordinateSystems.Count; i++)
                 {
+                    if (cscollection.coordinateSystems[i]== activeCoordinateSystem)
+                    {
+                        activeCoordinateSystemIndex = index;
+                    }
+                    index++;
                     coordinatesystems.Add(cscollection.coordinateSystems[i]);
                     coordinatesystemNames.Add(cscollection.coordinateSystems[i].name);
                 }
             }
-            //activeCoordinateSystem = (CoordinateSystem)property.FindPropertyRelative("coordinateSystem").exposedReferenceValue;
-
-            // activeCoordinateSystem = (CoordinateSystem)property.FindPropertyRelative("coordinateSystem").objectReferenceValue;
-            //CoordinateSystem[] csArray = (CoordinateSystem[])Resources.FindObjectsOfTypeAll(typeof(CoordinateSystem));
-            //activeCoordinateSystem = (CoordinateSystem)property.FindPropertyRelative("coordinateSystem").objectReferenceValue;
-            //for (int i = 0; i < csArray.Length; i++)
-            //{
-            //    coordinatesystems.Add(csArray[i]);
-            //    coordinatesystemNames.Add(csArray[i].name);
-            //    if (activeCoordinateSystem == csArray[i])
-            //    {
-            //        activeCoordinateSystemIndex = i;
-            //    }
-            //}
+            
 
         }
 

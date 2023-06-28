@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d03dec7cef09846bbb3273489a7e8d, type: 3}
   m_Name: WGS84_3D
   m_EditorClassIdentifier: 
-  epsgCode: 0
+  epsgCode: 4979
   name: WGS84 3D
   _coordinateSystemType: 5
   Axis1:
-    name: longitude
-    abbreviation: lon
-    direction: 1
-    Unit: 1
-  Axis2:
     name: lattitude
     abbreviation: lat
     direction: 0
     Unit: 1
+  Axis2:
+    name: longitude
+    abbreviation: lon
+    direction: 1
+    Unit: 1
   Axis3:
     name: ellipsoidal height
     abbreviation: h
-    direction: 10
+    direction: 8
     Unit: 0

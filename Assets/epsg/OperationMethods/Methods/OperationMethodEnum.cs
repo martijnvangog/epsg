@@ -4,8 +4,11 @@
     {
         Helmert7,
         null_operation,
-        AddDimension,
-        GeographicToGeocentric
+        SetAxisvalue,
+        GeographicToGeocentric,
+        SetAsideElevation,
+        ElevationGridOffset,
+        GridShift
     }
 
 }

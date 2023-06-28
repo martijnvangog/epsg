@@ -14,32 +14,6 @@ namespace epsg
 
         static List<CoordinateSystem> coordinateSystems = new List<CoordinateSystem>();
 
-        public static int getAxisCount(CoordinateSystemType coordinateSystemType)
-        {
-            int axiscount = 0;
-            switch (coordinateSystemType)
-            {
-                case CoordinateSystemType.cartesian2D:
-                    axiscount= 2;
-                    break;
-                case CoordinateSystemType.cartesian3D:
-                    axiscount = 3;
-                    break;
-                case CoordinateSystemType.ellipsoidal2D:
-                    axiscount = 2;
-                    break;
-                case CoordinateSystemType.ellipsoidal3D:
-                    axiscount = 3;
-                    break;
-                case CoordinateSystemType.geocentric:
-                    axiscount = 2;
-                    break;
-                default:
-                    break;
-            }
-            return axiscount;
-        }
-
         public static void AddTransformations(List<Transformation> transformations)
         {
             for (int i = 0; i < transformations.Count; i++)
@@ -167,7 +141,6 @@ namespace epsg
 
         public static RealWorldCoordinate Transform(RealWorldCoordinate coordinate, CoordinateSystem targetCoordinateSystem)
         {
-            //getAllTransformations();
             SetTransformationPath(coordinate.coordinateSystem, targetCoordinateSystem);
             Vector3Any tempCoordinate = new Vector3Any(coordinate.value1,coordinate.value2,coordinate.value3);
             for (int i = 0; i < currentTransformationPath.operations.Count; i++)

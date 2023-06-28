@@ -9,9 +9,10 @@ namespace epsg.operationMethods
         
         public HelmertSettings HelmertSettings;
         public NullOperationSettings nullOperationSettings;
-        public AddDimensionSettings addDimensionSettings;
+        public SetAxisvalueSettings addDimensionSettings;
         public GeographicToGeocentricSettings geog2GeocSettings;
-        
+        public ElevationgridSettings elevationGridSettings;
+        public GridshiftSettings gridShiftSettings;
         
 
         public Vector3Any Apply(Vector3Any coordinate,OperationDirection direction)
@@ -23,11 +24,29 @@ namespace epsg.operationMethods
                     result = Helmert.Apply(coordinate, HelmertSettings, direction);
                     break;
                 case OperationMethodEnum.null_operation:
+                    result = coordinate ;
                     break;
-                case OperationMethodEnum.AddDimension:
-                    result = AddDimension.Apply(coordinate, addDimensionSettings, direction);
+                case OperationMethodEnum.SetAxisvalue:
+                    result = SetAxisvalue.Apply(coordinate, addDimensionSettings, direction);
                     break;
                 case OperationMethodEnum.GeographicToGeocentric:
+                    if (direction == OperationDirection.Forward)
+                    {
+                        result = GeographicToGeocentric.Forward(coordinate, geog2GeocSettings);
+                    }
+                    else
+                    {
+                        result = GeographicToGeocentric.Reverse(coordinate, geog2GeocSettings);
+                    }
+                    break;
+                case OperationMethodEnum.SetAsideElevation:
+                    result = ElevationGrid.SetAsideElevation(coordinate, direction);
+                    break;
+                case OperationMethodEnum.ElevationGridOffset:
+                    result = ElevationGrid.ApplyElevationGrid(coordinate, direction,elevationGridSettings);
+                    break;
+                case OperationMethodEnum.GridShift:
+                    result = GridShift.Apply(coordinate, direction, gridShiftSettings);
                     break;
                 default:
                     break;
