@@ -80,6 +80,11 @@ namespace epsg.operationMethods
                     container.Add(gridshiftField);
                     container.Bind(property.FindPropertyRelative("gridShiftSettings").serializedObject);
                     break;
+                case OperationMethodEnum.ObliqueStereographic:
+                    var obliqueField = new PropertyField(property.FindPropertyRelative("obliqueStereographicSettings"));
+                    container.Add(obliqueField);
+                    container.Bind(property.FindPropertyRelative("obliqueStereographicSettings").serializedObject);
+                    break;
                 default:
                     break;
             }

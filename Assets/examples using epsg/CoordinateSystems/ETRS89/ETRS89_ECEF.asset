@@ -18,15 +18,15 @@ MonoBehaviour:
   Axis1:
     name: geocentric X
     abbreviation: X
-    direction: 11
+    direction: 5
     Unit: 0
   Axis2:
     name: geocentric Y
     abbreviation: Y
-    direction: 12
+    direction: 6
     Unit: 0
   Axis3:
     name: geocentric Z
     abbreviation: Z
-    direction: 13
+    direction: 7
     Unit: 0

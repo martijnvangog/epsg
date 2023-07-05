@@ -44,7 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35827b4e88ade85408b26c56c1fde71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordinateSystems: []
+  coordinateSystems:
+  - {fileID: 11400000, guid: f70187d472e435f418a153db06c17ff7, type: 2}
+  - {fileID: 11400000, guid: cda7fa63d50ae284c99b2ef15a778abe, type: 2}
+  - {fileID: 11400000, guid: a0c08185e69105547b961e845ceca416, type: 2}
   transformations:
   - from: {fileID: 11400000, guid: f70187d472e435f418a153db06c17ff7, type: 2}
     to: {fileID: 11400000, guid: cda7fa63d50ae284c99b2ef15a778abe, type: 2}
@@ -81,6 +84,8 @@ MonoBehaviour:
           rowCount: 0
           columnCount: 0
           firstValueIndex: 0
+        gridShiftSettings:
+          gridshiftFilename: 
   - from: {fileID: 11400000, guid: cda7fa63d50ae284c99b2ef15a778abe, type: 2}
     to: {fileID: 11400000, guid: a0c08185e69105547b961e845ceca416, type: 2}
     operations:
@@ -116,6 +121,8 @@ MonoBehaviour:
           rowCount: 0
           columnCount: 0
           firstValueIndex: 0
+        gridShiftSettings:
+          gridshiftFilename: 
   - from: {fileID: 11400000, guid: f70187d472e435f418a153db06c17ff7, type: 2}
     to: {fileID: 11400000, guid: bae984b63041f9b469ce5d736b5c5f52, type: 2}
     operations:
@@ -151,6 +158,8 @@ MonoBehaviour:
           rowCount: 0
           columnCount: 0
           firstValueIndex: 0
+        gridShiftSettings:
+          gridshiftFilename: 
   - from: {fileID: 11400000, guid: cda7fa63d50ae284c99b2ef15a778abe, type: 2}
     to: {fileID: 11400000, guid: c319484f8b858194982d1fdfa2786d94, type: 2}
     operations:
@@ -186,3 +195,5 @@ MonoBehaviour:
           rowCount: 0
           columnCount: 0
           firstValueIndex: 0
+        gridShiftSettings:
+          gridshiftFilename: 

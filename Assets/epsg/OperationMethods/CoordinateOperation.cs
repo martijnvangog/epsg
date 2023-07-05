@@ -13,6 +13,7 @@ namespace epsg.operationMethods
         public GeographicToGeocentricSettings geog2GeocSettings;
         public ElevationgridSettings elevationGridSettings;
         public GridshiftSettings gridShiftSettings;
+        public ObliqueSterographicSettings obliqueStereographicSettings;
         
 
         public Vector3Any Apply(Vector3Any coordinate,OperationDirection direction)
@@ -47,6 +48,9 @@ namespace epsg.operationMethods
                     break;
                 case OperationMethodEnum.GridShift:
                     result = GridShift.Apply(coordinate, direction, gridShiftSettings);
+                    break;
+                case OperationMethodEnum.ObliqueStereographic:
+                    result = ObliqueSterographic.Apply(coordinate, obliqueStereographicSettings, direction);
                     break;
                 default:
                     break;

@@ -8,7 +8,8 @@
         GeographicToGeocentric,
         SetAsideElevation,
         ElevationGridOffset,
-        GridShift
+        GridShift,
+        ObliqueStereographic
     }
 
 }

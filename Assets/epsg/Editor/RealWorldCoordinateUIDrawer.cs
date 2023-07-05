@@ -13,6 +13,7 @@ namespace epsg
         VisualElement coordinatesContainer;
         VisualElement coordinatePopup;
         CoordinateSystem activeCoordinateSystem;
+        VisualElement activeCoordinateSystemObject;
         int activeCoordinateSystemIndex=0;
         List<CoordinateSystem> coordinatesystems = new List<CoordinateSystem>();
         List<string> coordinatesystemNames = new List<string>();
@@ -20,20 +21,27 @@ namespace epsg
 
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
+            
+
             mainContainer = new Foldout();
             mainContainer.text = property.displayName;
             //var label = new Label(property.displayName);
             //mainContainer.Add(label);
-
-            var expand = new Foldout();
-            getCoordinateSystems(property);
-            coordinatePopup = new DropdownField("coordinateSystem",coordinatesystemNames, activeCoordinateSystemIndex);
             
-            coordinatePopup.style.left = 10;
-            serializedObject = property.FindPropertyRelative("coordinateSystem").serializedObject;
-            coordinatePopup.Bind(serializedObject);
-            coordinatePopup.RegisterCallback<ChangeEvent<string>>(x=>csChanged(x.newValue,property));
-            coordinatePopup.style.left = 10;
+            var expand = new Foldout();
+            //getCoordinateSystems(property);
+            //coordinatePopup = new DropdownField("coordinateSystem",coordinatesystemNames, activeCoordinateSystemIndex);
+            coordinatePopup = new PropertyField(property.FindPropertyRelative("coordinateSystem"));
+            
+            //coordinatePopup.style.left = 10;
+            //serializedObject = property.FindPropertyRelative("coordinateSystem").serializedObject;
+            //activeCoordinateSystemObject = new VisualElement();
+            //activeCoordinateSystemObject.TrackPropertyValue(property.FindPropertyRelative("coordinateSystem"), drawCoordinates);
+
+            //coordinatePopup.Bind(serializedObject);
+
+            //coordinatePopup.RegisterCallback<ChangeEvent<string>>(x=>csChanged(x.newValue,property));
+            //coordinatePopup.style.left = 10;
             mainContainer.Add(coordinatePopup);
 
             coordinatesContainer = new VisualElement();
@@ -67,6 +75,8 @@ namespace epsg
             {
                 return;
             }
+
+           
             var axis1 = activeCoordinateSystem.Axis1;
             var axis2 = activeCoordinateSystem.Axis2;
             var axis3 = activeCoordinateSystem.Axis3;
@@ -114,7 +124,7 @@ namespace epsg
                     }
                     index++;
                     coordinatesystems.Add(cscollection.coordinateSystems[i]);
-                    coordinatesystemNames.Add(cscollection.coordinateSystems[i].name);
+                    coordinatesystemNames.Add(cscollection.coordinateSystems[i].name + " (epsg:"+ cscollection.coordinateSystems[i].epsgCode + ")");
                 }
             }
             

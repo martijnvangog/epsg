@@ -142,11 +142,16 @@ namespace epsg
         public static RealWorldCoordinate Transform(RealWorldCoordinate coordinate, CoordinateSystem targetCoordinateSystem)
         {
             SetTransformationPath(coordinate.coordinateSystem, targetCoordinateSystem);
+            //TODO: when creating tempcoordinate, look at coordinateSystem to make sure the values are copied in the right order
+            // i.e. is the first value in the tempcoordinate must be X or lat
+            // the order is not always the same for different coordaintesystems
             Vector3Any tempCoordinate = new Vector3Any(coordinate.value1,coordinate.value2,coordinate.value3);
             for (int i = 0; i < currentTransformationPath.operations.Count; i++)
             {
                 tempCoordinate = currentTransformationPath.operations[i].Apply(tempCoordinate);
             }
+
+            //TODO: make sure the values of the resulting coordinate are assigned in the riggth order
             return new RealWorldCoordinate(targetCoordinateSystem, tempCoordinate.value1, tempCoordinate.value2, tempCoordinate.value3);
             
         }

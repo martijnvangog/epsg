@@ -44,7 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35827b4e88ade85408b26c56c1fde71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordinateSystems: []
+  coordinateSystems:
+  - {fileID: 11400000, guid: bae984b63041f9b469ce5d736b5c5f52, type: 2}
+  - {fileID: 11400000, guid: c319484f8b858194982d1fdfa2786d94, type: 2}
+  - {fileID: 11400000, guid: a5594a06de387c64a81ec5c58031264f, type: 2}
   transformations:
   - from: {fileID: 11400000, guid: c319484f8b858194982d1fdfa2786d94, type: 2}
     to: {fileID: 11400000, guid: a5594a06de387c64a81ec5c58031264f, type: 2}
@@ -81,6 +84,8 @@ MonoBehaviour:
           rowCount: 0
           columnCount: 0
           firstValueIndex: 0
+        gridShiftSettings:
+          gridshiftFilename: 
   - from: {fileID: 11400000, guid: bae984b63041f9b469ce5d736b5c5f52, type: 2}
     to: {fileID: 11400000, guid: c319484f8b858194982d1fdfa2786d94, type: 2}
     operations:
@@ -116,3 +121,5 @@ MonoBehaviour:
           rowCount: 0
           columnCount: 0
           firstValueIndex: 0
+        gridShiftSettings:
+          gridshiftFilename: 
